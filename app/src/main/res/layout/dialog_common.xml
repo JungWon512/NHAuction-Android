@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<hmju.widget.view.CustomLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:background="@color/white">
+
+    <!-- 내용 -->
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvContents"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size_61"
+        android:gravity="center_horizontal"
+        android:includeFontPadding="false"
+        android:paddingLeft="@dimen/size_10"
+        android:paddingRight="@dimen/size_10"
+        android:textColor="@color/color_1a1a1a"
+        android:textSize="@dimen/size_20"
+        android:visibility="gone"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="내용내용\n내용"
+        tools:visibility="visible" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/llButton"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/size_60"
+        android:layout_marginTop="@dimen/size_50"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvContents">
+
+        <hmju.widget.view.CustomTextView
+            android:id="@+id/tvNegative"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:foreground="?android:selectableItemBackground"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:letterSpacing="@dimen/letter_spacing_04"
+            android:textSize="@dimen/size_25"
+            android:visibility="gone"
+            app:textViewBgColor="@color/color_cccccc"
+            app:textViewTxtColor="@color/white"
+            tools:text="취소"
+            tools:visibility="visible" />
+
+        <hmju.widget.view.CustomTextView
+            android:id="@+id/tvPositive"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:foreground="?android:selectableItemBackground"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:letterSpacing="@dimen/letter_spacing_04"
+            android:textSize="@dimen/size_25"
+            android:visibility="gone"
+            app:textViewBgColor="@color/color_007eff"
+            app:textViewTxtColor="@color/white"
+            tools:text="확인"
+            tools:visibility="visible" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</hmju.widget.view.CustomLayout>

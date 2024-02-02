@@ -1,0 +1,134 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'kotlinx-serialization'
+    id 'dagger.hilt.android.plugin'
+    id 'com.google.gms.google-services'
+}
+
+android {
+    compileSdkVersion build_versions.compile_sdk
+    buildToolsVersion build_versions.build_tools
+
+    defaultConfig {
+        applicationId "com.nh.cowauction"
+        minSdkVersion 21
+        targetSdkVersion 33
+        versionCode 31
+        versionName "1.1.8"
+        archivesBaseName = "cowauction" + versionName + "_" + versionCode
+        multiDexEnabled true
+        testInstrumentationRunner "com.nh.cowauction.HiltTestRunner"
+    }
+
+    buildTypes {
+
+        debug {
+            minifyEnabled false
+            debuggable true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        release {
+            minifyEnabled true
+            debuggable false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    buildFeatures {
+        viewBinding true
+        dataBinding true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
+    kapt {
+        correctErrorTypes = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation deps.kotlin.stdlib
+    implementation deps.kotlin.core
+
+    // [s] AndroidX Common
+    implementation deps.common.appCompat
+    implementation deps.common.constraint_layout
+    implementation deps.common.material
+    implementation deps.common.multidex
+    implementation deps.common.legacy
+    implementation deps.common.viewpager
+    implementation deps.common.cardview
+    implementation deps.common.activity
+    implementation deps.common.fragment
+    // [e] AndroidX Common
+
+    // [s] Android Lifecycle
+    implementation deps.lifecycle.base
+    implementation deps.lifecycle.viewmodel
+    implementation deps.lifecycle.livedata
+    implementation deps.lifecycle.savedState
+    // [e] Android Lifecycle
+
+    implementation platform('com.google.firebase:firebase-bom:29.0.1')
+    implementation 'com.google.firebase:firebase-dynamic-links-ktx'
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+
+    // [s] Rx
+    implementation deps.rxjava.base
+    implementation deps.rxjava.android
+    implementation deps.rxjava.kotlin
+    // [e] Rx
+
+    // [s] Retrofit2
+    implementation deps.okhttp
+    implementation deps.retrofit.base
+    implementation deps.retrofit.rxjava
+    implementation deps.retrofit.kotlinx_serialization
+    implementation deps.kotlinx_serialization
+    // [e] Retrofit2
+
+    // [s] Kakao i Live & Netty
+//    implementation deps.kakaoLive
+    implementation deps.netty
+    // [e] Kakao i Live & Netty
+
+    // [s] Agora
+    implementation deps.agora
+    // [e] Agora
+
+    // [s] Hilt
+    implementation(deps.hilt.android)
+    kapt(deps.hilt.compiler)
+    // [e] Hilt
+
+    //implementation(deps.widget)
+    //implementation(deps.permissions)
+
+    /* [s] Unit Test dependencies */
+    testImplementation(deps.testCommon.junit)
+    androidTestImplementation(deps.testCommon.junit)
+    androidTestImplementation(deps.testCommon.core)
+    androidTestImplementation(deps.testCommon.ext)
+    androidTestImplementation(deps.testCommon.rules)
+    androidTestImplementation(deps.testCommon.espresso)
+    androidTestImplementation(deps.testHilt.android)
+    kaptAndroidTest(deps.testHilt.compiler)
+    /* [e] Unit Test dependencies */
+
+    implementation name: 'widget-release', ext: 'aar'
+    implementation name: 'permissions-release', ext: 'aar'
+}

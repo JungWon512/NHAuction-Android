@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="io.agora.base.internal.video.RendererCommon.ScalingType" />
+
+        <import type="com.nh.cowauction.contants.CastState" />
+
+        <variable
+            name="viewModel"
+            type="com.nh.cowauction.viewmodels.AuctionCamViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:id="@+id/viewerContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/color_27293d">
+
+            <com.nh.cowauction.widget.visual.CustomSurfaceRenderer
+                android:id="@+id/viewer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:tag="@{viewModel.position}"
+                app:rendererScaleType="@{ScalingType.SCALE_ASPECT_FIT}"
+                app:rendererThumbImageView="@{clReady}" />
+
+        </FrameLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clReady"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:alphaAniVisible="@{viewModel.liveCastState != CastState.PLAYING}"
+            app:turtleClick="@{()->viewModel.onClickThumbNail(viewer)}"
+            tools:visibility="visible">
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/img_ready_cam" />
+            <!-- resizingFullScreen true 일 경우 썸네일 꽉 차게 하기 위해 scaleType fitXY 로 지정함-->
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/color_50_black" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:textColor="@color/white"
+                android:textSize="@dimen/size_30"
+                app:htmlText="@{@string/str_auction_cam_ready}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

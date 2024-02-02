@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.nh.cowauction.contants.FragmentType" />
+
+        <variable
+            name="viewModel"
+            type="com.nh.cowauction.viewmodels.FetchViewModel" />
+    </data>
+
+    <com.nh.cowauction.ui.header.HeaderView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:headerType="none">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgClose"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/size_48"
+                android:adjustViewBounds="true"
+                android:paddingLeft="@dimen/size_24"
+                android:paddingTop="@dimen/size_17"
+                android:paddingRight="@dimen/size_24"
+                android:paddingBottom="@dimen/size_15"
+                android:src="@drawable/ic_close"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:turtleClick="@{()->viewModel.close()}" />
+
+            <com.nh.cowauction.ui.webview.CustomWebView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imgClose"
+                app:loadWebUrl="@{viewModel.webUrl}"
+                app:viewModel="@{viewModel}" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.nh.cowauction.ui.header.HeaderView>
+</layout>

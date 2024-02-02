@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="onConfirm"
+            type="android.view.View.OnClickListener" />
+
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvMsg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/size_10"
+            android:paddingBottom="@dimen/size_10"
+            android:textColor="@color/color_FF2819"
+            android:textSize="@dimen/size_20" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="IP "
+                android:textColor="@color/color_111111"
+                android:textSize="@dimen/size_20" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etIp"
+                style="@style/DefaultEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="IP 주소 (xxx.xxx.x.xx)"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:maxLines="1"
+                android:textColor="@color/color_007eff"
+                android:textColorHint="@color/color_cccccc"
+                android:textSize="@dimen/size_20"
+                tools:text="아이피 주소" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:textStyle="bold"
+                android:text="PORT "
+                android:textColor="@color/color_111111"
+                android:textSize="@dimen/size_20" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etPort"
+                style="@style/DefaultEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="포트 번호 입력"
+                android:inputType="number"
+                android:maxLines="1"
+                android:textColor="@color/color_007eff"
+                android:textColorHint="@color/color_cccccc"
+                android:textSize="@dimen/size_20"
+                app:editNextDone="@{onConfirm}" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        <TextView
+            android:id="@+id/tvConfirm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_007eff"
+            android:gravity="center"
+            android:paddingTop="@dimen/size_20"
+            android:paddingBottom="@dimen/size_20"
+            android:text="확인"
+            android:textColor="@color/white"
+            android:textSize="@dimen/size_20"
+            app:turtleClick="@{onConfirm}" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+</layout>

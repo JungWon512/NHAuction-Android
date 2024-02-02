@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.nh.cowauction.contants.AuctionOperation" />
+
+        <variable
+            name="viewModel"
+            type="com.nh.cowauction.viewmodels.AuctionViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- 상태 메시지 -->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/llState"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/size_10"
+            android:paddingBottom="@dimen/size_10"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_5"
+                android:layout_marginBottom="@dimen/size_5"
+                android:gravity="center_horizontal"
+                android:letterSpacing="@dimen/letter_spacing_04"
+                android:textColor="@color/color_1a1a1a"
+                android:textSize="@dimen/size_25"
+                android:textStyle="bold"
+                app:auctionStateType="@{viewModel.auctionStateMessage}"
+                tools:text="경매 대기중입니다." />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgInfo"
+            android:layout_width="@dimen/size_48"
+            android:layout_height="0dp"
+            android:adjustViewBounds="true"
+            android:paddingRight="@dimen/size_10"
+            android:src="@drawable/img_entry_info"
+            app:layout_constraintBottom_toBottomOf="@+id/llState"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/llState"
+            app:turtleClick="@{()->viewModel.moveFetchAuction()}"
+            tools:visibility="visible" />
+
+        <com.nh.cowauction.widget.visual.SlowlyDisappearsTextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/color_e6efff"
+            android:ellipsize="none"
+            android:gravity="center"
+            android:singleLine="true"
+            android:textColor="@color/color_1a1a1a"
+            android:textSize="@dimen/size_25"
+            android:textStyle="bold"
+            app:htmlText="@{viewModel.snackMsg}"
+            app:layout_constraintBottom_toBottomOf="@+id/llState"
+            app:layout_constraintTop_toTopOf="@+id/llState"
+            tools:visibility="gone" />
+
+        <!-- 금액  -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/size_62"
+            android:layout_marginLeft="@dimen/size_10"
+            android:layout_marginRight="@dimen/size_10"
+            android:background="@{viewModel.auctionOperation == AuctionOperation.BATCH_SELECTION ? @drawable/bg_auction_number_field : @drawable/bg_auction_price_field}"
+            android:paddingLeft="@dimen/size_20"
+            android:paddingRight="@dimen/size_20"
+            app:layout_constraintTop_toBottomOf="@+id/llState">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvPriceUnit"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:includeFontPadding="false"
+                android:lineHeight="@dimen/size_24"
+                android:lineSpacingMultiplier="0.7"
+                android:maxLines="2"
+                android:text="@{viewModel.auctionOperation == AuctionOperation.BATCH_SELECTION ? @string/str_auction_bidding_input_entry_num : @string/str_auction_bidding_input_price}"
+                android:textColor="@color/color_1a1a1a"
+                android:textSize="@dimen/size_23"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                tools:text="금액\n만원" />
+
+            <!-- 응찰 가격 -->
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:gravity="right|center_vertical"
+                android:includeFontPadding="false"
+                android:maxLines="1"
+                android:textColor="@{viewModel.biddingColor}"
+                android:textSize="@dimen/size_40"
+                android:textStyle="bold"
+                android:visibility="@{viewModel.auctionOperation != AuctionOperation.BATCH_SELECTION,default=visible}"
+                app:htmlText="@{@string/fmt_comma(viewModel.biddingPrice)}"
+                app:layout_constraintLeft_toRightOf="@+id/tvPriceUnit"
+                app:layout_constraintRight_toRightOf="parent"
+                tools:text="520"
+                tools:textColor="@color/color_111111"
+                tools:visibility="visible" />
+
+            <!-- 출품 번호 -->
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/size_62"
+                app:layout_constraintTop_toTopOf="parent"
+                android:gravity="right"
+                android:orientation="horizontal"
+                android:visibility="@{viewModel.auctionOperation == AuctionOperation.BATCH_SELECTION,default=gone}"
+                app:layout_constraintLeft_toRightOf="@+id/tvPriceUnit"
+                app:layout_constraintRight_toRightOf="parent"
+                tools:visibility="gone">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="right|bottom"
+                    android:includeFontPadding="false"
+                    android:maxLines="1"
+                    android:textColor="@color/color_1a1a1a"
+                    android:textSize="@dimen/size_40"
+                    android:textStyle="bold"
+                    android:visibility="@{viewModel.biddingEntryNum != 0,default = gone}"
+                    app:intText="@{viewModel.biddingEntryNum}"
+                    tools:text="13" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="@dimen/size_5"
+                    android:gravity="bottom"
+                    android:includeFontPadding="false"
+                    android:maxLines="1"
+                    android:text="@string/str_auction_entry_num"
+                    android:textColor="@color/color_111111"
+                    android:textSize="@dimen/size_30"
+                    android:textStyle="bold" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- 키패드 -->
+        <include
+            layout="@layout/layout_keypad"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="@dimen/size_7"
+            android:layout_marginTop="@dimen/size_8"
+            android:layout_marginRight="@dimen/size_7"
+            android:layout_marginBottom="@dimen/size_7"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clPrice"
+            app:viewModel="@{viewModel}" />
+
+        <hmju.widget.view.CustomTextView
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:gravity="center"
+            android:paddingTop="@dimen/size_30"
+            android:paddingBottom="@dimen/size_30"
+            app:auctionSnackType="@{viewModel.auctionSnackType}"
+            android:textSize="@dimen/size_41"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintTop_toTopOf="@+id/clPrice"
+            app:textViewBgColor="@color/color_90000000"
+            app:textViewTxtColor="@color/white"
+            tools:text="경매 대기중 입니다." />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

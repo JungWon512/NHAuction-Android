@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- [s] HeaderView Style -->
+    <declare-styleable name="HeaderView">
+        <attr name="headerType" format="enum">
+            <enum name="none" value="0" />
+            <enum name="auction" value="1" />
+            <enum name="web" value="2" />
+        </attr>
+    </declare-styleable>
+    <!-- [e] HeaderView Style -->
+
+    <!-- [s] BaseIndicatorView -->
+    <declare-styleable name="BaseIndicatorView">
+        <attr name="indicatorColor" format="color" /> <!-- Indicator Color -->
+        <attr name="indicatorBackgroundColor" format="color" /> <!-- Background Color -->
+        <attr name="indicatorRadius" format="dimension" /> <!--Indicator Corner  -->
+        <attr name="indicatorLoop" format="boolean" /> <!-- ViewPager Infinite Type -->
+        <attr name="indicatorGravity" format="enum"> <!-- Indicator Gravity -->
+            <enum name="left" value="0" />
+            <enum name="center" value="1" />
+            <enum name="right" value="2" />
+        </attr>
+    </declare-styleable>
+    <!-- [e] BaseIndicatorView -->
+
+    <!-- [s] DotIndicatorView -->
+    <declare-styleable name="DotIndicatorView">
+        <attr name="indicator_dot_size" format="dimension" /> <!-- Dot Size -->
+        <attr name="indicator_dot_gap" format="dimension" /> <!-- Dot Divider  -->
+    </declare-styleable>
+    <!-- [s] DotIndicatorView -->
+
+    <!-- [s] BaseTabLayout Style -->
+    <declare-styleable name="BaseTabLayout">
+        <attr name="tab_type" format="enum">
+            <enum name="fixed" value="0" />
+            <enum name="scrollable" value="1" />
+        </attr>
+        <attr name="tab_txt_size" format="dimension" />
+        <attr name="tab_is_change_txt_style" format="boolean" />
+        <attr name="tab_txt_color" format="color" />
+        <attr name="tab_disable_txt_color" format="color" />
+        <attr name="tab_bottom_line_height" format="dimension" />
+    </declare-styleable>
+    <!-- [e] BaseTabLayout Style -->
+
+    <declare-styleable name="LinePagerTabLayout">
+        <attr name="tab_indicator_height" format="dimension" />
+        <attr name="tab_indicator_color" format="color" />
+        <attr name="tab_scroll_offset" format="dimension" />
+    </declare-styleable>
+
+</resources>

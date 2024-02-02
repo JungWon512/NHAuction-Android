@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.nh.cowauction.viewmodels.MainViewModel" />
+    </data>
+
+    <com.nh.cowauction.ui.header.HeaderView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:headerType="none">
+
+        <com.nh.cowauction.ui.webview.CustomWebView
+            android:id="@+id/webView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="@{viewModel.isSplashFinish, default=gone}"
+            app:callJavaScript="@{viewModel.scriptFunction}"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+            app:loadWebUrl="@{viewModel.webUrl}"
+            app:viewModel="@{viewModel}" />
+    </com.nh.cowauction.ui.header.HeaderView>
+</layout>

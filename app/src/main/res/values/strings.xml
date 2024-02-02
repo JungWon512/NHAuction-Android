@@ -1,0 +1,138 @@
+<resources>
+    <string name="app_name">가축시장</string>
+    <string name="fmt_comma"><![CDATA[%1$,d]]></string>
+    <string name="fmt_entry_num"><![CDATA[%d]]></string>
+    <string name="str_back_press_info">\'뒤로\'버튼을 한번 더 누르시면 종료됩니다.</string>
+    <string name="str_confirm">확인</string>
+    <string name="str_exit">종료</string>
+    <string name="str_app_close">앱 종료</string>
+    <string name="str_integrity_app">앱의 변조가 의심됩니다.\n삭제 후 마켓에서 다시 다운로드해주세요.</string>
+    <string name="str_app_version_update_optional">최신 업데이트가 있습니다.\n업데이트 하시겠습니까?</string>
+    <string name="str_app_version_update_require">최적의 사용 환경을 위해 최신 버전의 앱으로 업데이트 해주세요.</string>
+    <string name="str_app_update">앱 업데이트</string>
+    <string name="str_app_update_after">나중에</string>
+    <string name="str_network_error_msg">네트워크 연결 상태가 불안정합니다.\n네트워크 상태를 확인해주세요.</string>
+    <string name="str_reconnect">재접속</string>
+    <!-- [s] 인트로 -->
+    <string name="str_splash"><![CDATA[온라인 스마트 경매,<b>가축시장.kr</b>]]></string>
+    <!-- [e] 인트로 -->
+
+    <!--[s] 키패드 -->
+    <string name="str_num_0">0</string>
+    <string name="str_num_1">1</string>
+    <string name="str_num_2">2</string>
+    <string name="str_num_3">3</string>
+    <string name="str_num_4">4</string>
+    <string name="str_num_5">5</string>
+    <string name="str_num_6">6</string>
+    <string name="str_num_7">7</string>
+    <string name="str_num_8">8</string>
+    <string name="str_num_9">9</string>
+    <string name="str_cancel">취소</string>
+    <string name="str_bidding">응찰</string>
+    <string name="str_bidding_cancel">응찰\n취소</string>
+    <string name="str_remove">지움</string>
+    <string name="str_keypad_back">전 화면</string>
+    <!--[e] 키패드 -->
+
+    <string name="str_fetch_scheduled">예정 조회</string>
+    <string name="str_fetch_resulted">결과 조회</string>
+    <string name="str_fetch_bid">응찰 내역</string>
+    <string name="str_watch_auction">경매 관전</string>
+    <string name="str_not_open_auction"><![CDATA[현재 참여 가능한 경매가 없습니다.<br>관리자에게 문의하세요.]]></string>
+
+    <!-- [s] 경매 응찰 페이지 -->
+    <string name="str_invalid_bidding">현재 응찰 가능상태가 아닙니다.</string>
+    <string name="str_invalid_entry_num">경매 번호를 입력해주세요.</string>
+    <string name="fmt_participation_num">참가번호: %s번</string>
+    <string name="str_auction_entry_title_1">번호</string>
+    <string name="str_auction_entry_title_2">출하주</string>
+    <string name="str_auction_entry_title_3">성별</string>
+    <string name="str_auction_entry_title_4">중량</string>
+    <string name="str_auction_entry_title_5">어미</string>
+    <string name="str_auction_entry_title_6">계대</string>
+    <string name="str_auction_entry_title_7">산차</string>
+    <string name="str_auction_entry_title_8">KPN</string>
+    <string name="str_auction_entry_title_9">지역명</string>
+    <string name="str_auction_entry_title_10">비고</string>
+    <string name="str_auction_entry_title_11">최저가</string>
+    <string name="str_auction_entry_title_12">친자</string>
+    <string name="str_auction_bidding_num">번호</string>
+    <string name="str_auction_bidding_gender">성별</string>
+    <string name="str_auction_bidding_caving_num">산차</string>
+    <string name="str_auction_bidding_mating_plan">계대</string>
+    <string name="str_auction_bidding_min_price">최저가</string>
+    <string name="str_auction_bidding_shipper">출하주</string>
+    <string name="str_auction_bidding_weight">중량</string>
+    <string name="str_auction_bidding_mother">어미</string>
+    <string name="str_auction_bidding_kpn">KPN</string>
+    <string name="str_auction_bidding_etc">비고</string>
+    <string name="str_auction_bidding_bid_price">낙찰가</string>
+    <string name="str_auction_bidding_state">상태</string>
+    <string name="str_alert_auction_bidding_input_price">금액을 입력해주세요.</string>
+    <string name="str_alert_auction_bidding_success">%s만원 응찰 완료</string>
+    <string name="str_auction_bidding_input_price">응찰\n금액</string>
+    <string name="str_auction_bidding_input_entry_num">경매\n번호</string>
+    <string name="str_auction_state_start"><![CDATA[<font color=#007eff><b>응찰</b></font>하시기 바랍니다.]]></string>
+    <string name="str_auction_state_completed"><![CDATA[경매가 <font color=#007eff><b>완료</b></font>되었습니다.]]></string>
+    <string name="str_auction_state_finish"><![CDATA[경매가 <font color=#007eff><b>종료</b></font>되었습니다.]]></string>
+    <string name="str_auction_state_finish_red"><![CDATA[경매가 <font color=#ea0030><b>종료</b></font>되었습니다.]]></string>
+    <string name="str_auction_state_stop"><![CDATA[경매가 잠시 <font color=#007eff><b>중단</b></font>되었습니다.]]></string>
+    <string name="str_auction_state_progress"><![CDATA[<font color=#007eff><b>응찰</b></font>하시기 바랍니다.]]></string>
+    <string name="str_auction_state_ready"><![CDATA[경매 <font color=#007eff><b>대기 중</b></font>입니다.]]></string>
+    <string name="str_auction_state_ready_green"><![CDATA[경매 <font color=#86e57f><b>대기 중</b></font>입니다.]]></string>
+    <string name="str_auction_state_count_down"><![CDATA[응찰 마감 <font color=#f22800><b>%d초 전</b></font>]]></string>
+    <string name="str_auction_state_bid_success"><![CDATA[%,2d만 원 <font color=#007eff>낙찰</font>]]></string>
+    <string name="str_auction_state_bid_success_won"><![CDATA[%,2d원 <font color=#007eff>낙찰</font>]]></string>
+    <string name="str_auction_state_other_bid_success"><![CDATA[<font color=#007eff><b>낙찰금액 %,2d만 원 / %d번</b></font>]]></string>
+    <string name="str_auction_state_other_bid_success_won"><![CDATA[<font color=#007eff><b>낙찰금액 %,2d원 / %d번</b></font>]]></string>
+    <string name="str_auction_state_bid_miscarry"><![CDATA[<font color=#007eff>유찰</font>되었습니다.]]></string>
+    <string name="str_auction_bidding_success"><![CDATA[<font color=#007eff>응찰</font>되었습니다]]></string>
+    <string name="str_auction_bidding_normal_success"><![CDATA[응찰되었습니다]]></string>
+    <string name="str_auction_bidding_cancel"><![CDATA[<font color=#007eff>응찰 취소</font>되었습니다.]]></string>
+    <string name="str_auction_response_price_not_enough"><![CDATA[<font color=#f22800>응찰금액을 확인 하세요.]]></string>
+    <string name="str_auction_finish"><![CDATA[<font color=#007eff>경매 종료</font>되었습니다.]]></string>
+    <string name="str_auction_invalid">진행중인 경매가 없습니다.</string>
+    <string name="str_server_disconnected">서버와 연결이 끊어졌습니다.</string>
+    <string name="str_auction_invalid_duplicate">이미 접속한 사용자가 있습니다.</string>
+    <string name="str_auction_fail"><![CDATA[경매를 참여하실수 없습니다.<br>경매 참여를 원하실 경우 관리자에게 문의하세요.]]></string>
+    <string name="str_auction_bidding">경매응찰</string>
+    <string name="str_auction_entry_num">번</string>
+    <string name="str_auction_entry_cancel"><![CDATA[경매 <font color=#007eff><b>대기 중</b></font>입니다.]]></string>
+    <string name="str_auction_retry_bidding"><![CDATA[<font color=#007eff><b>재응찰</b></font>하시기 바랍니다.]]></string>
+    <string name="str_auction_retry_not_bidding"><![CDATA[<font color=#007eff><b>재경매</b></font> 진행 중입니다.]]></string>
+    <string name="str_auction_not_retry_bidder">재경매 대상이 아닙니다.</string>
+    <string name="str_auction_not_entry_cancel">응찰 취소를 할 수 없습니다.</string>
+    <string name="str_auction_batch_selection_info"><![CDATA[<font color=#007eff>경매 번호</font>를 입력하세요.]]></string>
+    <string name="str_auction_batch_bidding_info"><![CDATA[<font color=#007eff>응찰 금액</font>을 입력하세요.]]></string>
+    <string name="str_auction_cam_ready"><![CDATA[실시간 영상 서비스<br><font color=#76baff>준비중</font>입니다.]]></string>
+    <string name="str_auction_exit_contents">응찰을 종료하시겠습니까?</string>
+    <string name="str_watch_auction_exit_contents">관전을 종료하시겠습니까?</string>
+    <string name="str_streaming_service_permissions">동영상 서비스를 위해 전화 권한이 필요합니다.</string>
+    <string name="str_permissions_setting">권한 설정</string>
+    <string name="str_permissions_info">가축시장 접근 권한 안내</string>
+    <string name="str_permissions_required">필수적 접근 권한</string>
+    <string name="str_permissions_optional">선택적 접근 권한</string>
+    <string name="str_permissions_internet_title">인터넷</string>
+    <string name="str_permissions_internet_contents">네트워크(인터넷) 상태 확인</string>
+    <string name="str_permissions_network_title">네트워크</string>
+    <string name="str_permissions_network_contents">네트워크 상태 확인</string>
+    <string name="str_permissions_wifi_title">WIFI</string>
+    <string name="str_permissions_wifi_contents">와이파이 네트워크 상태 확인</string>
+    <string name="str_permissions_location_title">위치</string>
+    <string name="str_permissions_location_contents">근처 경매장 검색 시 사용</string>
+    <string name="str_permissions_phone_title">전화</string>
+    <string name="str_permissions_phone_contents">동영상 스트리밍 서비스 사용</string>
+    <string name="str_permissions_mic_title">마이크</string>
+    <string name="str_permissions_mic_contents">동영상 스트리밍 서비스 사용</string>
+    <string name="str_permissions_storage_title">저장공간</string>
+    <string name="str_permissions_storage_contents">동영상 스트리밍 서비스 사용</string>
+    <string name="str_permissions_camera_title">카메라</string>
+    <string name="str_permissions_camera_contents">동영상 스트리밍 서비스 사용</string>
+    <string name="str_message_auction_network_reconnection">네트워크 상태가 불안정합니다.\n재접속하시겠습니까?</string>
+    <string name="str_auction_bidding_end"><![CDATA[<font color=#007eff>응찰</font> 종료되었습니다.]]></string>
+    <string name="str_auction_invalid_current_entry_info">출장우 정보가 없습니다.\n경매 번호를 확인해주세요.</string>
+    <string name="str_auction_invalid_bidding_cancel">현재 취소 가능상태가 아닙니다.</string>
+    <!-- [e] 경매 응찰 페이지 -->
+
+</resources>

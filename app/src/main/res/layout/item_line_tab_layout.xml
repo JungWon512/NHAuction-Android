@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.nh.cowauction.widget.pagertablayout.PagerTabItem" />
+
+        <variable
+            name="listener"
+            type="com.nh.cowauction.widget.pagertablayout.BaseTabLayout.Listener" />
+
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:onClick="@{()->listener.onTabClick(item.pos)}"
+        android:orientation="vertical">
+
+        <hmju.widget.view.CustomTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:includeFontPadding="false"
+            android:paddingLeft="@dimen/size_10"
+            android:paddingRight="@dimen/size_10"
+            android:text="@{item.title}"
+            android:textSize="@dimen/size_18"
+            android:textStyle='@{item.isChangeTextStyle &amp;&amp; item.isSelected == true ? "bold" : "normal"}'
+            app:disableTxtColor="@{item.disableTxtColor}"
+            app:enableTxtColor="@{item.txtColor}"
+            app:isSelected="@{item.isSelected}"
+            app:textViewIsAuto="false" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</layout>

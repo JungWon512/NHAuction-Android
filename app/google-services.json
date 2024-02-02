@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1032604128953",
+    "project_id": "nhauction-3a51b",
+    "storage_bucket": "nhauction-3a51b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1032604128953:android:b477287a7464d8c281ed68",
+        "android_client_info": {
+          "package_name": "com.nh.cowauction"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1032604128953-ord5v1b20amcsdpkhdlttgugmu03skag.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nh.cowauction",
+            "certificate_hash": "23e74a9e0e9b8ed31fcf93d620ff581ee34712dc"
+          }
+        },
+        {
+          "client_id": "1032604128953-hot1rh200bbaemnafc49m5koq5cgl9m1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjqRAxPYvNMtuAlgsQ8eUcZ97kJhKMzug"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1032604128953-hot1rh200bbaemnafc49m5koq5cgl9m1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1032604128953-fg20usk75r88qqrkf1j5rcpe503j6tlo.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.nh.cow.auction",
+                "app_store_id": "1588847718"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

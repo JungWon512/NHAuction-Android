@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.nh.cowauction.contants.EntryTitleType" />
+
+        <import type="com.nh.cowauction.contants.AuctionOperation" />
+
+        <variable
+            name="viewModel"
+            type="com.nh.cowauction.viewmodels.WatchAuctionViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_1a1a1a">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/column1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/size_88" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/column2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <View
+            android:id="@+id/column3"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/size_78"
+            app:layout_constraintLeft_toRightOf="@+id/column2" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/row1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.2" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/row2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.4" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/row3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.6" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/row4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.8" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/row5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="1.0" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/AuctionEntryInfoTitle"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="@{viewModel.currentEntryTitle.one != EntryTitleType.NO_ID, default=visible}"
+            app:layout_constraintBottom_toTopOf="@+id/row1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/column1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:resourceText="@{viewModel.currentEntryTitle.one.id}"
+            tools:text="@string/str_auction_bidding_num" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/AuctionEntryInfoContents"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:auctionEntryContents="@{viewModel.currentEntryContents.one}"
+            app:auctionEntryType="@{viewModel.currentEntryTitle.one}"
+            app:inVisibility="@{viewModel.currentEntryContents.one != null &amp;&amp; viewModel.auctionOperation != AuctionOperation.BATCH_SELECTION}"
+            app:layout_constraintBottom_toTopOf="@+id/row1"
+            app:layout_constraintLeft_toRightOf="@+id/column1"
+            app:layout_constraintRight_toLeftOf="@+id/column2"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="9999999"
+            tools:visibility="visible" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/AuctionEntryInfoTitle"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="@{viewModel.currentEntryTitle.two != EntryTitleType.NO_ID, default=visible}"
+            app:layout_constraintBottom_toTopOf="@+id/row1"
+            app:layout_constraintLeft_toRightOf="@+id/column2"
+            app:layout_constraintRight_toLeftOf="@+id/column3"
+            app:layout_constraintTop_toTopOf="parent"
+            app:resourceText="@{viewModel.currentEntryTitle.two.id}"
+            tools:text="번호" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/AuctionEntryInfoContents"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:auctionEntryContents="@{viewModel.currentEntryContents.two}"
+            app:auctionEntryType="@{viewModel.currentEntryTitle.two}"
+            app:inVisibility="@{viewModel.currentEntryContents.two != null &amp;&amp; viewModel.auctionOperation != AuctionOperation.BATCH_SELECTION}"
+            app:layout_constraintBottom_toTopOf="@+id/row1"
+            app:layout_constraintLeft_toRightOf="@+id/column3"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="프리마틴"
+            tools:visibility="visible" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/AuctionEntryInfoTitle"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="@{viewModel.currentEntryTitle.three != EntryTitleType.NO_ID, default=visible}"
+            app:layout_constraintBottom_toTopOf="@+id/row2"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/column1"
+            app:layout_constraintTop_toBottomOf="@+id/row1"
+            app:resourceText="@{viewModel.currentEntryTitle.three.id}"
+            tools:text="@string/str_auction_bidding_shipper" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/AuctionEntryInfoContents"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:auctionEntryContents="@{viewModel.currentEntryContents.three}"
+            app:auctionEntryType="@{viewModel.currentEntryTitle.three}"
+            app:inVisibility="@{viewModel.currentEntryContents.three != null &amp;&amp; viewModel.auctionOperation != AuctionOperation.BATCH_SELECTION}"
+            app:isMasking="@{viewModel.isWatch}"
+            app:layout_constraintBottom_toTopOf="@+id/row2"
+            app:layout_constraintLeft_toRightOf="@+id/column1"
+            app:layout_constraintRight_toLeftOf="@+id/column2"
+            app:layout_constraintTop_toBottomOf="@+id/row1"
+            tools:text="홍길동"
+            tools:visibility="visible" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/AuctionEntryInfoTitle"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="@{viewModel.currentEntryTitle.four != EntryTitleType.NO_ID, default=visible}"
+            app:layout_constraintBottom_toTopOf="@+id/row2"
+            app:layout_constraintLeft_toRightOf="@+id/column2"
+            app:layout_constraintRight_toLeftOf="@+id/column3"
+            app:layout_constraintTop_toBottomOf="@+id/row1"
+            app:resourceText="@{viewModel.currentEntryTitle.four.id}"
+            tools:text="@string/str_auction_bidding_weight" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/AuctionEntryInfoContents"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:auctionEntryContents="@{viewModel.currentEntryContents.four}"
+            app:auctionEntryType="@{viewModel.currentEntryTitle.four}"
+            app:inVisibility="@{viewModel.currentEntryContents.four != null &amp;&amp; viewModel.auctionOperation != AuctionOperation.BATCH_SELECTION}"
+            app:layout_constraintBottom_toTopOf="@+id/row2"
+            app:layout_constraintLeft_toRightOf="@+id/column3"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/row1"
+            tools:text="260"
+            tools:visibility="visible" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/AuctionEntryInfoTitle"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="@{viewModel.currentEntryTitle.five != EntryTitleType.NO_ID, default=visible}"
+            app:layout_constraintBottom_toTopOf="@+id/row3"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/column1"
+            app:layout_constraintTop_toBottomOf="@+id/row2"
+            app:resourceText="@{viewModel.currentEntryTitle.five.id}"
+            tools:text="산차" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/AuctionEntryInfoContents"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:auctionEntryContents="@{viewModel.currentEntryContents.five}"
+            app:auctionEntryType="@{viewModel.currentEntryTitle.five}"
+            app:inVisibility="@{viewModel.currentEntryContents.five != null &amp;&amp; viewModel.auctionOperation != AuctionOperation.BATCH_SELECTION}"
+            app:layout_constraintBottom_toTopOf="@+id/row3"
+            app:layout_constraintLeft_toRightOf="@+id/column1"
+            app:layout_constraintRight_toLeftOf="@+id/column2"
+            app:layout_constraintTop_toBottomOf="@+id/row2"
+            tools:text="444"
+            tools:visibility="visible" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/AuctionEntryInfoTitle"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="@{viewModel.currentEntryTitle.six != EntryTitleType.NO_ID, default=visible}"
+            app:layout_constraintBottom_toTopOf="@+id/row3"
+            app:layout_constraintLeft_toRightOf="@+id/column2"
+            app:layout_constraintRight_toLeftOf="@+id/column3"
+            app:layout_constraintTop_toBottomOf="@+id/row2"
+            app:resourceText="@{viewModel.currentEntryTitle.six.id}"
+            tools:text="@string/str_auction_bidding_mother" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/AuctionEntryInfoContents"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:auctionEntryContents="@{viewModel.currentEntryContents.six}"
+            app:auctionEntryType="@{viewModel.currentEntryTitle.six}"
+            app:inVisibility="@{viewModel.currentEntryContents.six != null &amp;&amp; viewModel.auctionOperation != AuctionOperation.BATCH_SELECTION}"
+            app:layout_constraintBottom_toTopOf="@+id/row3"
+            app:layout_constraintLeft_toRightOf="@+id/column3"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/row2"
+            tools:text="혈통"
+            tools:visibility="visible" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/AuctionEntryInfoTitle"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="@{viewModel.currentEntryTitle.seven != EntryTitleType.NO_ID, default=visible}"
+            app:layout_constraintBottom_toTopOf="@+id/row4"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/column1"
+            app:layout_constraintTop_toBottomOf="@+id/row3"
+            app:resourceText="@{viewModel.currentEntryTitle.seven.id}"
+            tools:text="계대" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/AuctionEntryInfoContents"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:auctionEntryContents="@{viewModel.currentEntryContents.seven}"
+            app:auctionEntryType="@{viewModel.currentEntryTitle.seven}"
+            app:inVisibility="@{viewModel.currentEntryContents.seven != null &amp;&amp; viewModel.auctionOperation != AuctionOperation.BATCH_SELECTION}"
+            app:layout_constraintBottom_toTopOf="@+id/row4"
+            app:layout_constraintLeft_toRightOf="@+id/column1"
+            app:layout_constraintRight_toLeftOf="@+id/column2"
+            app:layout_constraintTop_toBottomOf="@+id/row3"
+            tools:text="44"
+            tools:visibility="visible" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/AuctionEntryInfoTitle"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="@{viewModel.currentEntryTitle.eight != EntryTitleType.NO_ID, default=visible}"
+            app:layout_constraintBottom_toTopOf="@+id/row4"
+            app:layout_constraintLeft_toRightOf="@+id/column2"
+            app:layout_constraintRight_toLeftOf="@+id/column3"
+            app:layout_constraintTop_toBottomOf="@+id/row3"
+            app:resourceText="@{viewModel.currentEntryTitle.eight.id}"
+            tools:text="@string/str_auction_bidding_kpn" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/AuctionEntryInfoContents"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:auctionEntryContents="@{viewModel.currentEntryContents.eight}"
+            app:auctionEntryType="@{viewModel.currentEntryTitle.eight}"
+            app:inVisibility="@{viewModel.currentEntryContents.eight != null &amp;&amp; viewModel.auctionOperation != AuctionOperation.BATCH_SELECTION}"
+            app:layout_constraintBottom_toTopOf="@+id/row4"
+            app:layout_constraintLeft_toRightOf="@+id/column3"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/row3"
+            tools:text="1556"
+            tools:visibility="visible" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/AuctionEntryInfoTitle"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="@{viewModel.currentEntryTitle.nine != EntryTitleType.NO_ID, default=visible}"
+            app:layout_constraintBottom_toTopOf="@+id/row5"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/column1"
+            app:layout_constraintTop_toBottomOf="@+id/row4"
+            app:resourceText="@{viewModel.currentEntryTitle.nine.id}"
+            tools:text="계대" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/AuctionEntryInfoContents"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:auctionEntryContents="@{viewModel.currentEntryContents.nine}"
+            app:auctionEntryType="@{viewModel.currentEntryTitle.nine}"
+            app:inVisibility="@{viewModel.currentEntryContents.nine != null &amp;&amp; viewModel.auctionOperation != AuctionOperation.BATCH_SELECTION}"
+            app:layout_constraintBottom_toTopOf="@+id/row5"
+            app:layout_constraintLeft_toRightOf="@+id/column1"
+            app:layout_constraintRight_toLeftOf="@+id/column2"
+            app:layout_constraintTop_toBottomOf="@+id/row4"
+            tools:text="44"
+            tools:visibility="visible" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/AuctionEntryInfoTitle"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="@{viewModel.currentEntryTitle.ten != EntryTitleType.NO_ID, default=visible}"
+            app:layout_constraintBottom_toTopOf="@+id/row5"
+            app:layout_constraintLeft_toRightOf="@+id/column2"
+            app:layout_constraintRight_toLeftOf="@+id/column3"
+            app:layout_constraintTop_toBottomOf="@+id/row4"
+            app:resourceText="@{viewModel.currentEntryTitle.ten.id}"
+            tools:text="출하주" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/AuctionEntryInfoContents"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:auctionEntryContents="@{viewModel.currentEntryContents.ten}"
+            app:auctionEntryType="@{viewModel.currentEntryTitle.ten}"
+            app:inVisibility="@{viewModel.currentEntryContents.ten != null &amp;&amp; viewModel.auctionOperation != AuctionOperation.BATCH_SELECTION}"
+            app:layout_constraintBottom_toTopOf="@+id/row5"
+            app:layout_constraintLeft_toRightOf="@+id/column3"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/row4"
+            tools:text="1556"
+            tools:visibility="visible" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

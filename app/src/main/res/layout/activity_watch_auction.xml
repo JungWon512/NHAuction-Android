@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.nh.cowauction.contants.FragmentType" />
+
+        <variable
+            name="viewModel"
+            type="com.nh.cowauction.viewmodels.WatchAuctionViewModel" />
+    </data>
+
+    <com.nh.cowauction.ui.header.HeaderView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:headerType="auction">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+            <!-- 계체 정보 및 Live Cam -->
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/topViewPager"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@color/color_27293d"
+                android:focusable="false"
+                app:dataList="@{viewModel.liveChannelList}"
+                app:itemType="@{FragmentType.AUCTION_TOP}"
+                app:layout_constraintDimensionRatio="360:203"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:limitSize="@{viewModel.liveChannelList.size() + 1}"
+                app:onPageState="@{(state) -> viewModel.onTopPageState(state)}"
+                app:position="@={viewModel.topCurrentPos}"
+                app:viewModel="@{viewModel}" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/size_42"
+                android:adjustViewBounds="true"
+                android:onClick="@{()->viewModel.moveTopViewPager(true)}"
+                android:paddingLeft="@dimen/size_10"
+                android:src="@drawable/ic_left_arrow"
+                android:visibility="@{viewModel.topCurrentPos != 0,default=gone}"
+                app:layout_constraintBottom_toBottomOf="@+id/topViewPager"
+                app:layout_constraintLeft_toLeftOf="@+id/topViewPager"
+                app:layout_constraintTop_toTopOf="@+id/topViewPager"
+                tools:visibility="visible" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/size_42"
+                android:adjustViewBounds="true"
+                android:onClick="@{()->viewModel.moveTopViewPager(false)}"
+                android:paddingRight="@dimen/size_10"
+                android:src="@drawable/ic_right_arrow"
+                android:visibility="@{viewModel.topCurrentPos &lt; viewModel.liveChannelList.size(),default=gone}"
+                app:layout_constraintBottom_toBottomOf="@+id/topViewPager"
+                app:layout_constraintRight_toRightOf="@+id/topViewPager"
+                app:layout_constraintTop_toTopOf="@+id/topViewPager"
+                tools:visibility="visible" />
+
+            <com.nh.cowauction.widget.indicator.AuctionIndicatorView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_10"
+                android:layout_marginBottom="@dimen/size_10"
+                android:visibility="@{viewModel.topCurrentPos != 0,default=gone}"
+                app:indicatorBackgroundColor="@color/color_dbdbdb"
+                app:indicatorCnt="@{viewModel.liveChannelList.size()}"
+                app:indicatorColor="@color/color_007eff"
+                app:indicatorGravity="center"
+                app:indicatorRadius="@dimen/size_5"
+                app:layout_constraintBottom_toBottomOf="@+id/topViewPager"
+                app:viewPager="@{topViewPager}" />
+
+            <!-- 경매 카운트 다운. -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@color/color_50_black"
+                android:visibility="@{viewModel.isAuctionCountDown, default=gone}"
+                app:layout_constraintBottom_toBottomOf="@+id/topViewPager"
+                app:layout_constraintTop_toTopOf="@+id/topViewPager"
+                tools:visibility="gone">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/color_81c4ff"
+                    android:textSize="@dimen/size_125"
+                    app:intText="@{viewModel.countDownNum}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="3" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <com.nh.cowauction.ui.webview.CustomWebView
+                android:id="@+id/webView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+                app:loadWebUrl="@{viewModel.webUrl}"
+                app:viewModel="@{viewModel}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/topViewPager"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.nh.cowauction.ui.header.HeaderView>
+
+</layout>

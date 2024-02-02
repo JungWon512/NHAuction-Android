@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.nh.cowauction.contants.AuctionOperation" />
+
+        <variable
+            name="viewModel"
+            type="com.nh.cowauction.viewmodels.AuctionViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!-- [s] Guide Line -->
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/column1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.25" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/column2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/column3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.75" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/row1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.25" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/row2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.5" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/row3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.75" />
+            <!-- [e] Guide Line -->
+
+            <hmju.widget.view.CustomTextView
+                style="@style/AuctionKeyPadNum"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:onClick="@{()->viewModel.onClickNum(7)}"
+                android:text="@string/str_num_7"
+                app:hapticFeedback="@{true}"
+                app:layout_constraintBottom_toTopOf="@+id/row1"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/column1"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <hmju.widget.view.CustomTextView
+                style="@style/AuctionKeyPadNum"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:onClick="@{()->viewModel.onClickNum(8)}"
+                android:text="@string/str_num_8"
+                app:hapticFeedback="@{true}"
+                app:layout_constraintBottom_toTopOf="@+id/row1"
+                app:layout_constraintLeft_toRightOf="@+id/column1"
+                app:layout_constraintRight_toLeftOf="@+id/column2"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <hmju.widget.view.CustomTextView
+                style="@style/AuctionKeyPadNum"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:onClick="@{()->viewModel.onClickNum(9)}"
+                android:text="@string/str_num_9"
+                app:hapticFeedback="@{true}"
+                app:layout_constraintBottom_toTopOf="@+id/row1"
+                app:layout_constraintLeft_toRightOf="@+id/column2"
+                app:layout_constraintRight_toLeftOf="@+id/column3"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.nh.cowauction.widget.visual.KeyPadView
+                android:id="@+id/vRemove"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="@dimen/size_3"
+                android:background="@drawable/bg_keypad_num"
+                android:foreground="@drawable/fg_keypad"
+                android:onClick="@{()->viewModel.onRemove(vRemove)}"
+                app:layout_constraintBottom_toTopOf="@+id/row1"
+                app:layout_constraintLeft_toRightOf="@+id/column3"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <hmju.widget.view.CustomTextView
+                    style="@style/AuctionKeyPadNum"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:text="@string/str_remove"
+                    app:hapticFeedback="@{true}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="지움" />
+
+                <!-- 2022-04-27 지움으로 변경
+                            <androidx.appcompat.widget.AppCompatImageView
+                              android:layout_width="match_parent"
+                              android:layout_height="match_parent"
+                              android:padding="@dimen/size_10"
+                              android:scaleType="centerInside"
+                              android:src="@drawable/ic_remove_keypad"
+                              android:visibility="gone" />-->
+
+            </com.nh.cowauction.widget.visual.KeyPadView>
+
+            <hmju.widget.view.CustomTextView
+                style="@style/AuctionKeyPadNum"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:onClick="@{()->viewModel.onClickNum(4)}"
+                android:text="@string/str_num_4"
+                app:hapticFeedback="@{true}"
+                app:layout_constraintBottom_toTopOf="@+id/row2"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="@+id/column1"
+                app:layout_constraintTop_toBottomOf="@+id/row1" />
+
+            <hmju.widget.view.CustomTextView
+                style="@style/AuctionKeyPadNum"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:onClick="@{()->viewModel.onClickNum(5)}"
+                android:text="@string/str_num_5"
+                app:hapticFeedback="@{true}"
+                app:layout_constraintBottom_toTopOf="@+id/row2"
+                app:layout_constraintLeft_toRightOf="@+id/column1"
+                app:layout_constraintRight_toLeftOf="@+id/column2"
+                app:layout_constraintTop_toBottomOf="@+id/row1" />
+
+            <hmju.widget.view.CustomTextView
+                style="@style/AuctionKeyPadNum"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:onClick="@{()->viewModel.onClickNum(6)}"
+                android:text="@string/str_num_6"
+                app:hapticFeedback="@{true}"
+                app:layout_constraintBottom_toTopOf="@+id/row2"
+                app:layout_constraintLeft_toRightOf="@+id/column2"
+                app:layout_constraintRight_toLeftOf="@+id/column3"
+                app:layout_constraintTop_toBottomOf="@+id/row1" />
+
+            <hmju.widget.view.CustomTextView
+                style="@style/AuctionKeyPadNum"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:onClick="@{()->viewModel.onClickNum(1)}"
+                android:text="@string/str_num_1"
+                app:hapticFeedback="@{true}"
+                app:layout_constraintBottom_toTopOf="@+id/row3"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/column1"
+                app:layout_constraintTop_toBottomOf="@+id/row2" />
+
+            <hmju.widget.view.CustomTextView
+                style="@style/AuctionKeyPadNum"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:onClick="@{()->viewModel.onClickNum(2)}"
+                android:text="@string/str_num_2"
+                app:hapticFeedback="@{true}"
+                app:layout_constraintBottom_toTopOf="@+id/row3"
+                app:layout_constraintLeft_toRightOf="@+id/column1"
+                app:layout_constraintRight_toLeftOf="@+id/column2"
+                app:layout_constraintTop_toBottomOf="@+id/row2" />
+
+            <hmju.widget.view.CustomTextView
+                style="@style/AuctionKeyPadNum"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:onClick="@{()->viewModel.onClickNum(3)}"
+                android:text="@string/str_num_3"
+                app:hapticFeedback="@{true}"
+                app:layout_constraintBottom_toTopOf="@+id/row3"
+                app:layout_constraintLeft_toRightOf="@+id/column2"
+                app:layout_constraintRight_toLeftOf="@+id/column3"
+                app:layout_constraintTop_toBottomOf="@+id/row2" />
+
+            <hmju.widget.view.CustomTextView
+                style="@style/AuctionKeyPadCancel"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:onClick="@{()->viewModel.biddingCancel()}"
+                android:text="@string/str_bidding_cancel"
+                app:hapticFeedback="@{true}"
+                android:lineSpacingMultiplier="0.7"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/column1"
+                app:layout_constraintTop_toBottomOf="@+id/row3"
+                app:textViewBgColor="@color/color_f22800" />
+
+            <!-- 0 or 전화면 -->
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/column1"
+                app:layout_constraintRight_toLeftOf="@+id/column3"
+                app:layout_constraintTop_toBottomOf="@+id/row3">
+
+                <hmju.widget.view.CustomTextView
+                    style="@style/AuctionKeyPadNum"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="@{()->viewModel.onClickNum(0)}"
+                    android:text="@string/str_num_0"
+                    app:hapticFeedback="@{true}" />
+
+                <hmju.widget.view.CustomTextView
+                    style="@style/AuctionKeyPadNum"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:paddingLeft="@dimen/size_5"
+                    android:paddingRight="@dimen/size_5"
+                    android:text="@string/str_keypad_back"
+                    android:visibility="@{viewModel.auctionOperation != AuctionOperation.SEQ,default=gone}"
+                    app:hapticFeedback="@{true}"
+                    app:textViewBgColor="@color/color_ffaf00"
+                    app:turtleClick="@{()->viewModel.moveAuctionBatchSelection()}"
+                    tools:visibility="visible" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <hmju.widget.view.CustomTextView
+                style="@style/AuctionKeyPadNum"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:onClick="@{()->viewModel.sendBidding()}"
+                android:text="@{viewModel.auctionOperation == AuctionOperation.BATCH_SELECTION ? @string/str_confirm : @string/str_bidding}"
+                app:hapticFeedback="@{true}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/column3"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/row1"
+                app:textViewBgColor="@color/color_007eff"
+                tools:text="응찰" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
