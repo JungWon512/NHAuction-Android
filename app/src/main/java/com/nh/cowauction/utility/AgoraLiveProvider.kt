@@ -109,19 +109,25 @@ class AgoraLiveProviderImpl @Inject constructor(
     }
 
     private fun leaveChannel() {
-        engine!!.leaveChannel()
+        if(engine != null) {    // KIH 추가
+            engine!!.leaveChannel()
+        }
         RtcEngine.destroy()
         engine = null
     }
 
     override fun disableVideo() {
-        engine!!.disableVideo()
-        engine!!.disableAudio()
+        if(engine != null) {    // KIH 추가
+            engine!!.disableVideo()
+            engine!!.disableAudio()
+        }
     }
 
     override fun enableVideo() {
-        engine!!.enableAudio()
-        engine!!.enableVideo()
+        if(engine != null) {    // KIH 추가
+            engine!!.enableAudio()
+            engine!!.enableVideo()
+        }
     }
 
 

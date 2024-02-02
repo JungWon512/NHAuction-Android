@@ -15,8 +15,8 @@ android {
         applicationId "com.nh.cowauction"
         minSdkVersion 21
         targetSdkVersion 33
-        versionCode 31
-        versionName "1.1.8"
+        versionCode 32
+        versionName "1.1.9"
         archivesBaseName = "cowauction" + versionName + "_" + versionCode
         multiDexEnabled true
         testInstrumentationRunner "com.nh.cowauction.HiltTestRunner"
