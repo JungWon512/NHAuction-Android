@@ -32,6 +32,7 @@ object AuctionBindingAdapter {
                 )
             }
             AuctionState.OTHER_SUCCESS_BID_WON,
+            AuctionState.OTHER_SUCCESS_BID_DEFAULT,
             AuctionState.OTHER_SUCCESS_BID -> {
                 textView.text = HtmlCompat.fromHtml(
                     String.format(textView.resources.getString(type.msg), type.etc[0], type.etc[1]),
@@ -39,6 +40,7 @@ object AuctionBindingAdapter {
                 )
             }
             AuctionState.SUCCESS_BID_WON,
+            AuctionState.SUCCESS_BID_DEFAULT,
             AuctionState.SUCCESS_BID -> {
                 textView.text = HtmlCompat.fromHtml(
                     String.format(textView.resources.getString(type.msg), type.etc[0]),
