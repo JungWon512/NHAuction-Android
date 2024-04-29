@@ -13,6 +13,7 @@ import com.nh.cowauction.model.receive.ResponseConnectionInfo
 import com.nh.cowauction.repository.tcp.NettyClient
 import com.nh.cowauction.repository.tcp.SimpleOnReceiveMessage
 import com.nh.cowauction.repository.tcp.login.LoginManager
+import com.nh.cowauction.ui.dialog.CommonDialog
 import com.nh.cowauction.utility.DLogger
 import com.nh.cowauction.utility.ResourceProvider
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -22,6 +23,8 @@ import io.reactivex.rxjava3.kotlin.addTo
 import io.reactivex.rxjava3.schedulers.Schedulers
 import io.reactivex.rxjava3.subjects.BehaviorSubject
 import io.reactivex.rxjava3.subjects.Subject
+import java.net.InetAddress
+import java.net.UnknownHostException
 import javax.inject.Inject
 
 /**
@@ -96,11 +99,21 @@ class MainViewModel @Inject constructor(
             return
         }
 
+
         Thread {
+
             onLoadingShow()
+
+            val auctionIP = try {
+                InetAddress.getByName(Config.AUCTION_DOMAIN).hostAddress
+            } catch (e: UnknownHostException) {
+                Config.AUCTION_IP
+            }
+
             nettyClient.clearListener()
             nettyClient.setListener(onReceiveMessage)
-            nettyClient.start(Config.AUCTION_IP, Config.AUCTION_PORT)
+            //nettyClient.start(Config.AUCTION_IP, Config.AUCTION_PORT)
+            nettyClient.start(auctionIP, Config.AUCTION_PORT)
         }.start()
     }
 

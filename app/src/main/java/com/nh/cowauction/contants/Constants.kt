@@ -16,6 +16,11 @@ object Config {
     const val DEV_DOMAIN =   "https://xn--e20bw05b.kr" /*"http://192.168.0.86:18080"*/ /*"https://www.가축시장.kr"*/ /*"http://nhlva.nonghyup.com"*/
     const val PROD_DOMAIN = "https://xn--o39an74b9ldx9g.kr" /*"http://nhlva.nonghyup.com"*/
     val BASE_DOMAIN = if (IS_DEBUG) DEV_DOMAIN else PROD_DOMAIN
+
+    const val DEV_AUCTION_DOMAIN =   "xn--e20bw05b.kr" /*난장*/
+    const val PROD_AUCTION_DOMAIN = "cowauction.kr" /*cowauction*/
+    val AUCTION_DOMAIN = if (IS_DEBUG) DEV_AUCTION_DOMAIN else PROD_AUCTION_DOMAIN
+
     const val INVALID_CHANNEL_ID = "none"
 
     val BASE_FETCH_FMT_WEB_URL = "$BASE_DOMAIN/auction/api/entryListApi?naBzplc=%s&loginNo=%s"
