@@ -13,7 +13,6 @@ import com.nh.cowauction.model.receive.ResponseConnectionInfo
 import com.nh.cowauction.repository.tcp.NettyClient
 import com.nh.cowauction.repository.tcp.SimpleOnReceiveMessage
 import com.nh.cowauction.repository.tcp.login.LoginManager
-import com.nh.cowauction.ui.dialog.CommonDialog
 import com.nh.cowauction.utility.DLogger
 import com.nh.cowauction.utility.ResourceProvider
 import dagger.hilt.android.lifecycle.HiltViewModel
