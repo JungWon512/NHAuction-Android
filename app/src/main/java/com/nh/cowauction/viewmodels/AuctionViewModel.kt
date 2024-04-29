@@ -375,7 +375,11 @@ class AuctionViewModel @Inject constructor(
                     ) {
 
                         DLogger.d("#### $isWon  >>>>>>>  ${data.price} >>>>>>>  ${data.userNum}")
-
+                        AuctionState.SUCCESS_BID_DEFAULT.apply {
+                            etc = intArrayOf(data.price.toIntOrDef(0))
+                            _auctionStateMessage.postValue(this)
+                        }
+                        /*
                         if (isWon) {
                             AuctionState.SUCCESS_BID_WON.apply {
                                 etc = intArrayOf(data.price.toIntOrDef(0))
@@ -386,11 +390,19 @@ class AuctionViewModel @Inject constructor(
                                 etc = intArrayOf(data.price.toIntOrDef(0))
                                 _auctionStateMessage.postValue(this)
                             }
-                        }
+                        }*/
                     } else {
 
                         DLogger.d("#### 타인  $isWon  >>>>>>>  ${data.price} >>>>>>>  ${data.userNum}")
 
+                        AuctionState.OTHER_SUCCESS_BID_DEFAULT.apply {
+                            etc = intArrayOf(
+                                data.price.toIntOrDef(0),
+                                data.userNum.trim().toIntOrDef(0)
+                            )
+                            _auctionStateMessage.postValue(this)
+                        }
+                        /*
                         if (isWon) {
                             // 타인이 낙찰
                             AuctionState.OTHER_SUCCESS_BID_WON.apply {
@@ -409,7 +421,7 @@ class AuctionViewModel @Inject constructor(
                                 )
                                 _auctionStateMessage.postValue(this)
                             }
-                        }
+                        }*/
                     }
                 }
                 BiddingResult.HOLD -> {

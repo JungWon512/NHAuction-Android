@@ -5,7 +5,7 @@ import com.nh.cowauction.R
 
 object Config {
 
-    const val IS_DEBUG = false
+    const val IS_DEBUG = true
 
     const val LOCAL_AUCTION_IP = "192.168.0.23"
     const val DEV_AUCTION_IP = "115.41.222.25" /*LOCAL_AUCTION_IP*/
@@ -121,6 +121,8 @@ enum class AuctionState(val code: Int = -1, @StringRes val msg: Int = -1, vararg
     BATCH_BIDDING(msg = R.string.str_auction_batch_bidding_info), // 일괄 경매 응찰 금액 입력
     BIDDING_SUCCESS(msg = R.string.str_auction_bidding_success), // 응찰 성공
     BIDDING_END(msg = R.string.str_auction_bidding_end) // 응찰 종료
+    , SUCCESS_BID_DEFAULT(msg = R.string.str_auction_state_bid_success_default) // 낙찰 - 단위없음
+    , OTHER_SUCCESS_BID_DEFAULT(msg = R.string.str_auction_state_other_bid_success_default)  // 타인낙찰 - 단위없음
 }
 
 /**
