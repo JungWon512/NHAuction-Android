@@ -84,7 +84,7 @@
     <string name="str_auction_state_count_down"><![CDATA[응찰 마감 <font color=#f22800><b>%d초 전</b></font>]]></string>
     <string name="str_auction_state_bid_success"><![CDATA[%,2d만 원 <font color=#007eff>낙찰</font>]]></string>
     <string name="str_auction_state_bid_success_won"><![CDATA[%,2d원 <font color=#007eff>낙찰</font>]]></string>
-    <string name="str_auction_state_bid_success_default"><![CDATA[%,2d <font color=#007eff>낙찰</font>]]></string>
+    <string name="str_auction_state_bid_success_default"><![CDATA[<font color=#007eff>낙찰금액  </font>%,2d]]></string>
     <string name="str_auction_state_other_bid_success_default"><![CDATA[<font color=#007eff><b>낙찰금액 %,2d / %d번</b></font>]]></string>
     <string name="str_auction_state_other_bid_success"><![CDATA[<font color=#007eff><b>낙찰금액 %,2d만 원 / %d번</b></font>]]></string>
     <string name="str_auction_state_other_bid_success_won"><![CDATA[<font color=#007eff><b>낙찰금액 %,2d원 / %d번</b></font>]]></string>
