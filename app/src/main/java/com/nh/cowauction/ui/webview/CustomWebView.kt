@@ -412,6 +412,13 @@ class CustomWebView @JvmOverloads constructor(
             return currVersion
         }
 
+        @JavascriptInterface
+        fun callUrl(url : String?) {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+
+            activity.startActivity(intent)
+            DLogger.d("Return Application Version : $url")
+        }
 //        @JavascriptInterface
 //        fun moveWebPage(url: String?) {
 //            if (url.isNullOrEmpty()) return
